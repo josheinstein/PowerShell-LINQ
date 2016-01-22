@@ -250,6 +250,19 @@ namespace Einstein.PowerShell.LINQ
             
         }
 
+        public static ISet<object> ToSet( IEnumerable<object> items, ScriptBlock selector, bool? ignoreCase )
+        {
+
+            var selectorFunc = CreateSelector(selector);
+            var comparer = default(IEqualityComparer<object>);
+            if ( ignoreCase.HasValue ) {
+                comparer = new Einstein.PowerShell.LINQ.PSObjectComparer( ignoreCase.Value );
+            }
+
+            return new HashSet<object>( items.Select( selectorFunc ), comparer );
+
+        }
+
     }
 
 }

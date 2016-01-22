@@ -44,6 +44,7 @@
     <Compile Include="LINQ.psm1" />
     <Compile Include="Tests\Arrays.tests.ps1" />
     <Compile Include="Tests\ConvertTo-Dictionary.tests.ps1" />
+    <Compile Include="Tests\ConvertTo-Set.tests.ps1" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Source\PSEnumerable.cs" />
