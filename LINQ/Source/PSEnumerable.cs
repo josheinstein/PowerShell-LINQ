@@ -237,10 +237,7 @@ namespace Einstein.PowerShell.LINQ
             foreach (var item in items) {
                 
                 var key = keyFunction(item);
-                var val = item;
-                if (valueSelector != null) {
-                    val = valFunction(item);
-                }
+                var val = valFunction(item);
                 
                 if (force) {
                     table[key] = val;
