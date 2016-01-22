@@ -223,12 +223,17 @@ namespace Einstein.PowerShell.LINQ
             return hashSet.SetEquals(other);
         }
         
-        public static Hashtable ToDictionary(IEnumerable<object> items, ScriptBlock keySelector, ScriptBlock valueSelector = null, bool force = false) {
+        public static Hashtable ToDictionary(IEnumerable<object> items, ScriptBlock keySelector, ScriptBlock valueSelector = null, bool force = false, bool? ignoreCase = null) {
             
             var keyFunction = CreateSelector(keySelector);
             var valFunction = CreateSelector(valueSelector);
-            
-            var table = new Hashtable();
+
+            var comparer = default(IEqualityComparer);
+            if ( ignoreCase.HasValue ) {
+                comparer = new Einstein.PowerShell.LINQ.PSObjectComparer( ignoreCase.Value );
+            }
+
+            var table = new Hashtable(comparer);
             foreach (var item in items) {
                 
                 var key = keyFunction(item);
