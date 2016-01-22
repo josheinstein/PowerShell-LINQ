@@ -1,4 +1,4 @@
-﻿Import-Module LINQ
+﻿Import-Module ..\LINQ -Force
 
 $Numbers = @(1..10)
 

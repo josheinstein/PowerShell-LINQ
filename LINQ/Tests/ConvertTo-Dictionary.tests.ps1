@@ -1,20 +1,16 @@
-﻿Import-Module LINQ
+﻿Import-Module ..\LINQ -Force
 
 Describe "ConvertTo-Dictionary" {
 
     Context "Hashtables" {
 
-        BeforeEach {
-
-            $Objects = @(
-                [PSCustomObject]@{Name='Axl'; DOB=[DateTime]"1962-02-06"}
-                [PSCustomObject]@{Name='Slash'; DOB=[DateTime]"1965-07-23"}
-                [PSCustomObject]@{Name='Duff'; DOB=[DateTime]"1964-02-05"}
-                [PSCustomObject]@{Name='Izzy'; DOB=[DateTime]"1962-04-08"}
-                [PSCustomObject]@{Name='Steven'; DOB=[DateTime]"1965-01-22"}
-            )
-
-        }
+        $Objects = @(
+            [PSCustomObject]@{Name='Axl'; DOB=[DateTime]"1962-02-06"}
+            [PSCustomObject]@{Name='Slash'; DOB=[DateTime]"1965-07-23"}
+            [PSCustomObject]@{Name='Duff'; DOB=[DateTime]"1964-02-05"}
+            [PSCustomObject]@{Name='Izzy'; DOB=[DateTime]"1962-04-08"}
+            [PSCustomObject]@{Name='Steven'; DOB=[DateTime]"1965-01-22"}
+        )
 
         It "creates a Hashtable" {
             $Dictionary = $Objects | ConvertTo-Dictionary {$_.Name}
@@ -37,18 +33,14 @@ Describe "ConvertTo-Dictionary" {
 
     Context "Duplicate Keys" {
 
-        BeforeEach {
-
-            $Objects = @(
-                [PSCustomObject]@{Name='Axl'; DOB=[DateTime]"1962-02-06"}
-                [PSCustomObject]@{Name='Slash'; DOB=[DateTime]"1965-07-23"}
-                [PSCustomObject]@{Name='Duff'; DOB=[DateTime]"1964-02-05"}
-                [PSCustomObject]@{Name='Izzy'; DOB=[DateTime]"1962-04-08"}
-                [PSCustomObject]@{Name='Steven'; DOB=[DateTime]"1965-01-22"}
-                [PSCustomObject]@{Name='Axl'; DOB=[DateTime]"1900-01-01"}
-            )
-
-        }
+        $Objects = @(
+            [PSCustomObject]@{Name='Axl'; DOB=[DateTime]"1962-02-06"}
+            [PSCustomObject]@{Name='Slash'; DOB=[DateTime]"1965-07-23"}
+            [PSCustomObject]@{Name='Duff'; DOB=[DateTime]"1964-02-05"}
+            [PSCustomObject]@{Name='Izzy'; DOB=[DateTime]"1962-04-08"}
+            [PSCustomObject]@{Name='Steven'; DOB=[DateTime]"1965-01-22"}
+            [PSCustomObject]@{Name='Axl'; DOB=[DateTime]"1900-01-01"}
+        )
 
         It "throws without -force" {
             { $Objects | ConvertTo-Dictionary {$_.Name} } | Should Throw
