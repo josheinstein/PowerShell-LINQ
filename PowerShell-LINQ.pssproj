@@ -35,21 +35,22 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Folder Include="Tests\" />
-    <Folder Include="Source\" />
+    <Folder Include="LINQ\" />
+    <Folder Include="LINQ\Source\" />
+    <Folder Include="LINQ\Tests\" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Add-SourceFiles.ps1" />
-    <Compile Include="LINQ.psd1" />
-    <Compile Include="LINQ.psm1" />
-    <Compile Include="Tests\Arrays.tests.ps1" />
-    <Compile Include="Tests\ConvertTo-Dictionary.tests.ps1" />
-    <Compile Include="Tests\ConvertTo-Set.tests.ps1" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Source\PSEnumerable.cs" />
-    <Content Include="Source\PSObjectComparer.cs" />
-    <Content Include="Source\PSObjectFactory.cs" />
+    <Compile Include="LICENSE" />
+    <Compile Include="LINQ\Add-SourceFiles.ps1" />
+    <Compile Include="LINQ\LINQ.psd1" />
+    <Compile Include="LINQ\LINQ.psm1" />
+    <Compile Include="LINQ\Source\PSEnumerable.cs" />
+    <Compile Include="LINQ\Source\PSObjectComparer.cs" />
+    <Compile Include="LINQ\Source\PSObjectFactory.cs" />
+    <Compile Include="LINQ\Tests\Arrays.tests.ps1" />
+    <Compile Include="LINQ\Tests\ConvertTo-Dictionary.tests.ps1" />
+    <Compile Include="LINQ\Tests\ConvertTo-Set.tests.ps1" />
+    <Compile Include="README.md" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Target Name="Build" />
