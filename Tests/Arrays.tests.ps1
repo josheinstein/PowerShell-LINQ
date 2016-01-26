@@ -1,4 +1,4 @@
-﻿Import-Module ..\LINQ -Force
+﻿Import-Module $PSScriptRoot\..\LINQ -Force
 
 $Numbers = @(1..10)
 

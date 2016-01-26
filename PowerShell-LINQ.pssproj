@@ -16,6 +16,8 @@
     <Version>4.0</Version>
     <StartupFile>
     </StartupFile>
+    <WorkingDirectory>
+    </WorkingDirectory>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -37,7 +39,7 @@
   <ItemGroup>
     <Folder Include="LINQ\" />
     <Folder Include="LINQ\Source\" />
-    <Folder Include="LINQ\Tests\" />
+    <Folder Include="Tests\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="LICENSE" />
@@ -47,9 +49,9 @@
     <Compile Include="LINQ\Source\PSEnumerable.cs" />
     <Compile Include="LINQ\Source\PSObjectComparer.cs" />
     <Compile Include="LINQ\Source\PSObjectFactory.cs" />
-    <Compile Include="LINQ\Tests\Arrays.tests.ps1" />
-    <Compile Include="LINQ\Tests\ConvertTo-Dictionary.tests.ps1" />
-    <Compile Include="LINQ\Tests\ConvertTo-Set.tests.ps1" />
+    <Compile Include="Tests\Arrays.tests.ps1" />
+    <Compile Include="Tests\ConvertTo-Dictionary.tests.ps1" />
+    <Compile Include="Tests\ConvertTo-Set.tests.ps1" />
     <Compile Include="README.md" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
